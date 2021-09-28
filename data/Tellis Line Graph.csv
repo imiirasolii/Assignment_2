@@ -1,4 +1,4 @@
-﻿Month,Year,Month,Count
+﻿Month,Year,Month Names,Count
 1,2020,January,"1,096"
 2,2020,February,"1,182"
 3,2020,March,"1,012"
@@ -47,4 +47,3 @@
 10,2017,October,"1,134"
 11,2017,November,"1,183"
 12,2017,December,"1,098"
-,,,
