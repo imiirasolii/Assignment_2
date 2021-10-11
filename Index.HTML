@@ -37,7 +37,7 @@
   <div class = "subheading">
   <p>
      Whilst 2020 may have began like every other year, the year was filled with events truly like no other. Our Own Premier, Daniel Andrews, dubbed the events that occured in 2020 as a "1 in 100 year event".With the introduction of the COVID-19 disease, there were a range of changes to the very way of life that we were typically used to. Melbourne in particular had experienced a range of different lockdowns in order to prevent the widespread transmission of the disease. In total Melbourne spent 153 days in 2020 under different lockdown measures and as such we are examining how the effects of these lockdowns 
-    affected mobility and thus <span class = 'vehicle_text'>vehicle accidents</span>  in 2020.
+    affected mobility and thus vehicle accidents in 2020.
   </p>
   </div>
  
@@ -53,11 +53,16 @@
     <!-- pure grid group -->
     <div class="pure-g">
       <div class="pure-u-1-2">
-        <div id="vis1"  class="vis-container"></div>
+        <h3>
+          Average Monthly Number of Accidents Compared to <span class = 'vehicle_text'>2020</span>
+        </h3>
+        <div id="vis1"  class="selectable_bar_chart"></div>
       </div>
       <div class="pure-u-1-2">
-        <div id="vis2"  class="vis-container"></div>
-      </div>
+        <h3 class = "headings-left">
+          Monthly Breakdown of Yearly Accident Count Compared to <span class = 'vehicle_text'>2020</span>
+        </h3>
+        <div id="vis2"  class="selectable_trellis_chart"></div>
     </div>
     <!-- end pure grid group -->
 
@@ -72,8 +77,8 @@
   </div> <!-- end page -->
    
 <script type="text/javascript">
-  var specVis1 = "./Filtering-Line-Chart.json";
-  var specVis2= "./Chloropeth_Final.json";
+  var specVis1 = "https://raw.githubusercontent.com/imiirasolii/Assignment_2/main/js/Bar_chart.json";
+  var specVis2= "https://raw.githubusercontent.com/imiirasolii/Assignment_2/main/js/Trellis_Line_Chart.json";
 
   vegaEmbed('#vis1', specVis1, {"actions": false});
   
