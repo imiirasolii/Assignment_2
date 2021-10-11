@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> Assignment 2 Visualisation </title>
+  <!-- Import Vega & Vega-Lite (does not have to be from CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+
+  <!-- Import pure.css -->
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Google font -->
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
+  
+  <!-- CSS file -->
+  <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
+
+
+</head>
+  
+<div class="header">
+  <h1>Victorian Vehicle accidents - The 2020 Edition</h1>
+</div>
+  
+ 
+ <body>
+   
+
+   
+ <div class="page">
+  
+  <div class = "subheading">
+  <p>
+     Whilst 2020 may have began like every other year, the year was filled with events truly like no other. Our Own Premier, Daniel Andrews, dubbed the events that occured in 2020 as a "1 in 100 year event".With the introduction of the COVID-19 disease, there were a range of changes to the very way of life that we were typically used to. Melbourne in particular had experienced a range of different lockdowns in order to prevent the widespread transmission of the disease. In total Melbourne spent 153 days in 2020 under different lockdown measures and as such we are examining how the effects of these lockdowns 
+    affected mobility and thus <span class = 'vehicle_text'>vehicle accidents</span>  in 2020.
+  </p>
+  </div>
+ 
+  
+  <div class = "title">
+  <h1> <span class = 'vehicle_text'>General Overview of Vehicle Accidents</span> 
+  </h1>
+  </div>
+   
+    <div class = "line">
+  </div>
+
+    <!-- pure grid group -->
+    <div class="pure-g">
+      <div class="pure-u-1-2">
+        <div id="vis1"  class="vis-container"></div>
+      </div>
+      <div class="pure-u-1-2">
+        <div id="vis2"  class="vis-container"></div>
+      </div>
+    </div>
+    <!-- end pure grid group -->
+
+  
+    <div class="pure-g">
+      <div class="pure-u-1-1 small-font">
+        <p>This visualisation is created by Imran Rasoli</p>
+      </div>
+    </div>
+  
+
+  </div> <!-- end page -->
+   
+<script type="text/javascript">
+  var specVis1 = "./Filtering-Line-Chart.json";
+  var specVis2= "./Chloropeth_Final.json";
+
+  vegaEmbed('#vis1', specVis1, {"actions": false});
+  
+   vegaEmbed('#vis2', specVis2, {"actions": false}).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+
+</script>
+</body>
+</html>
