@@ -1,0 +1,25 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": { "url": "https://raw.githubusercontent.com/imiirasolii/Assignment_2/main/data/Proportions%20of%20Metro%20vs%20Regional%20Split.csv"},
+  "mark": "bar",
+  "width": {"step": 30},
+  "encoding": {
+    "y": {
+      "aggregate": "sum", "field": "Proportion",
+      "title": "population",
+      "stack":  "normalize",
+      "axis": {"title":"", "labelFontSize": 12, "labelColor": "grey"}
+    },
+    "x": {"field": "Year", "axis": {"title":"", "labelFontSize": 12, "labelColor": "grey", "labelAngle":0}},
+    "color": {
+      "field": "Regional or Metro",
+      "scale": {"range": ["#0066cc", "#e60000"]}
+    ,
+      "legend": null},
+          "tooltip": [
+      {"field": "Year", "type": "nominal", "title": "Year"},
+      {"field": "Regional or Metro", "type": "nominal", "title": "Section of Victoria"},
+      {"field": "Proportion", "type": "quantitative", "title": "Proportion of Yearly Accidents"}
+      ]
+  }
+}
