@@ -92,6 +92,12 @@
     height: 500px;
 }
 
+.collect{
+  padding-left: 50px;
+  width: 750px;
+  height: 500px;
+}
+
 .selectable_trellis_chart{
     width: 84%;
     height: 145px;
@@ -122,6 +128,13 @@
   .heading-right{
     color: #383838;
     font-size: 22px;
+    font-weight: 900;
+  }
+
+  .headings-right{
+    color: #383838;
+    font-size: 22px;
+    padding-left: 50px;
     font-weight: 900;
   }
 
