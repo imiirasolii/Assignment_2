@@ -50,6 +50,13 @@
   .vehicle_text {
     color: #0066cc;
     font-weight: 900; }
+
+
+.lockdown1{
+      color: #0066cc; }
+
+.lockdown2{
+        color: #004d99;}
   
   .title{
       font-family: 'Staatliches';
@@ -94,7 +101,13 @@
 
 .collect{
   padding-left: 50px;
-  width: 700px;
+  width: 500px;
+  height: 500px;
+}
+
+.collects{
+  padding-left: 50px;
+  width: 500px;
   height: 500px;
 }
 
