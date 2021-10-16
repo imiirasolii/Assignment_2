@@ -29,7 +29,7 @@
       "type": "quantitative",
       "axis": {"labelFontSize": 12, "labelColor": "grey", "titleFontSize":16, "titleColor":"grey"}
     },
-    "color": {"field": "Regional or Metro", "type": "nominal", "scale": {"range": ["#0066cc","#e60000"]}},
+    "color": {"field": "Regional or Metro", "type": "nominal", "scale": {"range": ["#0066cc","#e60000"]},"title": "Area of Victoria"},
      "opacity": {
       "condition": {"param": "industry", "value": 1},
       "value": 0.0},
