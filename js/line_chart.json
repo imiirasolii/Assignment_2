@@ -41,9 +41,13 @@
           "field": "YearMonth",
           "timeUnit": "yearmonth",
           "title": "",
-          "axis": {"grid": false}
+          "axis": {"grid": false, "labelFontSize": 12,
+            "labelFontWeight": "normal",
+            "labelColor": "grey"}
         },
-        "y": {"field": "Number of Monthly Accidents", "type": "quantitative", "axis":{"title": ""}},
+        "y": {"field": "Number of Monthly Accidents", "type": "quantitative", "axis":{"title": "", "labelFontSize": 12,
+            "labelFontWeight": "normal",
+            "labelColor": "grey"}},
         "color": {"value": "#333"},
             "tooltip": [
     {"field": "YearMonth", "type": "temporal","timeUnit":"yearmonth", "title": "Date"},
