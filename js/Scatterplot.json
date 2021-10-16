@@ -6,7 +6,7 @@
     "params": [{
   "name": "Year_selection",
   "value": 2020,
-  "bind": {"input": "select", "options": [2016,2017,2018,2019, 2020], "name": "Comparison Year "}
+  "bind": {"input": "select", "options": [2016,2017,2018,2019, 2020], "name": "Year "}
 },
 {  "name": "industry",
     "select": {"type": "point", "fields": ["Regional or Metro"]},
