@@ -8,7 +8,7 @@
     font-size: 40px;
     font-family: 'Staatliches';
     padding: 10px;
-    vertical-align: middle;
+    vertical-align: text-top;
   }
   
   .subheading{
@@ -18,9 +18,9 @@
     font-family: 'Bahnschrift';
     font-size: 22px;
     background: white;
-    font-weight: 500;
     font-style: italic;
-    color: 	#383838
+    color: 	#383838;
+    position: relative; bottom: 12px;
   }
   
   .line{
@@ -34,6 +34,18 @@
     height: 3px;
     width:1600px
   }
+
+  .main_title{
+    text-align: left;
+    font-size: 92.5px;
+    text-align: center;
+    font-family: 'Staatliches';
+    padding: 10px;
+
+  }
+
+  .bonkers{
+    font-weight: 700;}
   
   .vehicle_text {
     color: #0066cc;
@@ -87,9 +99,10 @@
 }
 
 .headings-left{
-    padding-left: 50px;
+    padding-left: 60px;
     font-size: 22px;
     color: #383838;
+    font-weight: 900;
 }
 
 .headings-seft{
@@ -109,13 +122,14 @@
   .heading-right{
     color: #383838;
     font-size: 22px;
+    font-weight: 900;
   }
 
   .annotate-left{
     color: #383838;
     font-size: 18px;
     font-style: italic;
-    line-height: 1.5;
+    line-height: 1.8;
   }
 
 
@@ -136,7 +150,7 @@
     font-size: 18px;
     padding-left:50px;
     font-style: italic;
-    line-height: 1.5;
+    line-height: 1.8;
 }
 
 
@@ -160,10 +174,21 @@
     color: #0066cc;
     font-weight: 700; }
 
+    .regional {
+      color: #0066cc; }
+
 .Metro {
         color: #e60000;
         font-weight: 900;
     }
+
+.Metro_anno{
+      color: #e60000;
+  }
+
+  .vehicle_text_annotation {
+    color: #0066cc;
+    font-weight: 700; }
 
 .vine{
         background: white;
