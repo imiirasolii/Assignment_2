@@ -1,0 +1,41 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "A scatterplot showing body mass and flipper lengths of penguins.",
+  "height": 500,
+  "width": 650,
+    "params": [{
+  "name": "Year_selection",
+  "value": 2020,
+  "bind": {"input": "select", "options": [2016,2017,2018,2019, 2020], "name": "Comparison Year "}
+},
+{  "name": "industry",
+    "select": {"type": "point", "fields": ["Regional or Metro"]},
+    "bind": "legend"
+  }],
+  "data": {
+    "url": "https://raw.githubusercontent.com/imiirasolii/Assignment_2/main/data/Scatterplot.csv"
+  },
+    "transform": [{"filter": "datum.Year==Year_selection"}],
+  "mark": {"type": "point", "filled": true, "size": 30},
+  "encoding": {
+    "x": {
+      "field": "Accidents",
+      "type": "quantitative",
+      "scale": {"zero": false},
+      "axis": {"grid": false, "labelFontSize": 12, "labelColor": "grey", "titleFontSize":16, "titleColor":"grey"}
+    },
+    "y": {
+      "field": "Fatailities",
+      "type": "quantitative",
+      "axis": {"labelFontSize": 12, "labelColor": "grey", "titleFontSize":16, "titleColor":"grey"}
+    },
+    "color": {"field": "Regional or Metro", "type": "nominal", "scale": {"range": ["#0066cc","#e60000"]}},
+     "opacity": {
+      "condition": {"param": "industry", "value": 1},
+      "value": 0.0},
+      "tooltip": [
+  {"field": "Year", "type": "nominal", "title": "Year"},
+  {"field": "LGA", "type": "nominal"},
+  {"field": "Accidents", "type": "quantitative",  "title": "Accidents"},
+  {"field": "Fatailities", "type": "quantitative", "title": "Fatalities"}]}
+}

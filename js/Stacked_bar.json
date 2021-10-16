@@ -1,14 +1,27 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "height": 485,
+  "width": 710,
+  "params": [{
+    "name": "Year_selection",
+    "value": 2012,
+    "bind": {
+    "input": "range",
+    "min": 2006,
+    "max": 2020,
+    "step": 1,
+    "name": "Year "
+    }  
+  }],
   "data": { "url": "https://raw.githubusercontent.com/imiirasolii/Assignment_2/main/data/Proportions%20of%20Metro%20vs%20Regional%20Split.csv"},
+  "transform": [{"filter": "datum.Year>=Year_selection"}],
   "mark": "bar",
-  "width": {"step": 30},
   "encoding": {
     "y": {
       "aggregate": "sum", "field": "Proportion",
       "title": "population",
       "stack":  "normalize",
-      "axis": {"title":"", "labelFontSize": 12, "labelColor": "grey"}
+      "axis": {"title":"", "labelFontSize": 12, "labelColor": "grey","grid":false}
     },
     "x": {"field": "Year", "axis": {"title":"", "labelFontSize": 12, "labelColor": "grey", "labelAngle":0}},
     "color": {
@@ -19,7 +32,7 @@
           "tooltip": [
       {"field": "Year", "type": "nominal", "title": "Year"},
       {"field": "Regional or Metro", "type": "nominal", "title": "Section of Victoria"},
-      {"field": "Proportion", "type": "quantitative", "title": "Proportion of Yearly Accidents"}
+      {"field": "Proportion", "type": "quantitative", "title": "Percentage of Accidents"}
       ]
   }
 }

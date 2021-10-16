@@ -1,0 +1,55 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "The population of the German city of Falkensee over time",
+  "width": 1460,
+  "height": 80,
+   "data": {"url": "https://raw.githubusercontent.com/imiirasolii/Assignment_2/main/data/Trellis_line_chart_finalised.csv"},
+  "layer": [
+    {
+      "mark": {"type": "rect","opacity": 0.65},
+      "data": {
+        "values": [
+          {
+            "start": "2020-02",
+            "end": "2020-05",
+            "Lockdowns": "Lockdown 1"
+          },
+          {
+            "start": "2020-07",
+            "end": "2020-10",
+            "Lockdowns": "Lockdown 2"
+          }
+        ]
+      },
+      "encoding": {
+        "x": {
+          "field": "start",
+          "timeUnit": "yearmonth"
+        },
+        "x2": {
+          "field": "end",
+          "timeUnit": "yearmonth"
+        },
+        "color": {"field": "Lockdowns", "type": "nominal",
+        "scale": {"range": ["#0066cc","#004d99"]}}
+      }
+    },
+    {
+      "mark": {"type":"line","point":true},
+      "encoding": {
+        "x": {
+          "field": "YearMonth",
+          "timeUnit": "yearmonth",
+          "title": "",
+          "axis": {"grid": false}
+        },
+        "y": {"field": "Number of Monthly Accidents", "type": "quantitative", "axis":{"title": ""}},
+        "color": {"value": "#333"},
+            "tooltip": [
+    {"field": "YearMonth", "type": "temporal","timeUnit":"yearmonth", "title": "Date"},
+    {"field": "Number of Monthly Accidents", "type": "quantitative"}
+    ]
+      }
+    }
+  ]
+}

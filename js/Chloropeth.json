@@ -1,0 +1,102 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": "container",
+    "height": "container",
+    "projection": {
+        "type": "equirectangular",
+        "center": { "expr": "center_to" },
+        "scale": { "expr": "zoom_level" }
+    },
+    "params": [{
+            "name": "Year_selection",
+            "value": 2019,
+            "bind": {
+                "input": "range",
+                "min": 2016,
+                "max": 2019,
+                "step": 1,
+                "name": "Year:  "
+            }
+        },
+        {
+            "name": "zoom_level",
+            "value": 15200,
+            "bind": {
+                "input": "range",
+                "min": 3500,
+                "max": 60000,
+                "step": 100,
+                "name": "Zoom: "
+            }
+        },
+        {
+            "name": "center_to",
+            "value": [145, -37.95],
+            "bind": {
+                "input": "select",
+                "options": [
+                    [145, -37.95],
+                    [144.964600,-37.020100]
+                ],
+                "labels": ["Metropolitan Melbourne", "Regional Victoria Snapshot"],
+                "name": "Map Centre:"
+            }
+        }
+    ],
+    "layer": [{
+            "data": {
+                "url": "https://raw.githubusercontent.com/imiirasolii/Homework4/main/Homework4/js/vic_lga.topojson",
+                "format": { "type": "topojson", "feature": "vic_lga" }
+            },
+            "mark": {
+                "type": "geoshape",
+                "fill": "#6baed6",
+                "stroke": "grey",
+                "strokeWidth": 0.5
+            },
+            "encoding": { "tooltip": { "field": "note" } }
+        },
+        {
+            "data": {
+                "url": "https://raw.githubusercontent.com/imiirasolii/Assignment_2/main/data/Final_chloropleth%20MAP.csv"
+            },
+            "transform": [{
+                    "lookup": "ABB_NAME",
+                    "from": {
+                        "data": {
+                            "url": "https://raw.githubusercontent.com/imiirasolii/Homework4/main/Homework4/js/vic_lga.topojson",
+                            "format": {
+                                "type": "topojson",
+                                "feature": "vic_lga"
+                            }
+                        },
+                        "key": "properties.ABB_NAME"
+                    },
+                    "as": "geo"
+                },
+                { "filter": "datum.Year == Year_selection" }
+            ],
+            "mark": { "type": "geoshape", "stroke": "grey", "strokeWidth": 0.5 },
+            "encoding": {
+                "shape": { "field": "geo", "type": "geojson" },
+                "color": {
+                    "field": "Percentage Difference",
+                    "type": "quantitative",
+                    "scale": {
+                       "type": "threshold",
+    "domain": [-80,-60,-40,-20],
+    "domainMax": -100,
+    "domainMin": 0,
+    "range": ["#08519c", "#3182bd", "#6baed6", "#bdd7e7","#eff3ff"]
+    }
+                    },
+                                        "tooltip": [
+         {"field": "Year", "type": "nominal", "title": "Year"},
+    {"field": "ABB_NAME", "type": "nominal", "title": "LGA Name"},
+    {"field": "Percentage Difference", "type": "quantitative"}
+    ]
+                    }
+                }
+    ],
+    "config": {}
+}

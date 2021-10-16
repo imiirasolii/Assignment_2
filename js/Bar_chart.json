@@ -1,36 +1,52 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": "container",
-    "height": "container",
-    "params": [{
-      "name": "Year_selection",
-      "value": 2018,
-      "bind": {
-      "input": "range",
-      "min": 2006,
-      "max": 2020,
-      "step": 1,
-      "name": "Year"
-      }  
-    }],
-    "data": {"url": "https://raw.githubusercontent.com/imiirasolii/Assignment_2/main/data/bar_chart_monthly_averages.csv"},
-    "transform": [{"filter": "datum.Year>=Year_selection"}],
-    "mark": {"type":"bar", "color":"grey"},
-    "encoding": {
-      "x": {"field": "Year", "axis":{"title": "","titleFontSize":18,
-              "labelFontSize": 12,
-              "labelFontWeight": "normal",
-              "labelColor": "grey"
-              }},
-      "y": {"field": "Average Number of Accidents", "type":"quantitative", "axis":{ "grid":false,"title": "","labelFontSize": 12,
-              "labelFontWeight": "normal",
-              "labelColor": "grey"}},
-      "color":{"field": "Covid Affected", "scale":{"range": ["darkgrey","#0066cc"]},
-      "legend":null},
-      "tooltip": [
-      {"field": "Year", "type": "nominal", "title": "Year"},
-      {"field": "Average Number of Accidents", "type": "nominal", "title": "Average Monthly Number of Accidents"}
-  
-      ] 
-    }
-  }
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": "container",
+  "params": [{
+    "name": "Year_selection",
+    "value": 2017,
+    "bind": {
+    "input": "range",
+    "min": 2006,
+    "max": 2020,
+    "step": 1,
+    "name": "Year "
+    }  
+  }],
+  "data": {"url": "https://raw.githubusercontent.com/imiirasolii/Assignment_2/main/data/bar_chart_monthly_averages.csv"},
+  "transform": [{"filter": "datum.Year>=Year_selection"}],
+  "layer": [{
+  "mark": {"type":"bar", "color":"grey"},
+  "encoding": {
+    "x": {"field": "Year", "axis":{"title": "","titleFontSize":18,
+            "labelFontSize": 12,
+            "labelFontWeight": "normal",
+            "labelColor": "grey"
+            }},
+    "y": {"field": "Average Number of Accidents", "type":"quantitative", "axis":{ "grid":false,"title": "","labelFontSize": 18,
+            "labelFontWeight": "normal",
+            "labelColor": "grey"}},
+    "color":{"field": "Covid Affected", "scale":{"range": ["darkgrey","#0066cc"]},
+    "legend":null},
+    "tooltip": [
+    {"field": "Year", "type": "nominal", "title": "Year"},
+    {"field": "Average Number of Accidents", "type": "nominal", "title": "Average Monthly Number of Accidents"}
+    ]
+  }},
+  {"encoding": {
+      "y": {
+        "aggregate": "mean",
+        "field": "Average Number of Accidents",
+        "type": "quantitative"
+      },
+      "color": {"value": "black"}},
+      "layer":[{"mark": "rule"},
+  {"mark": {
+        "type": "text",
+        "align": "right",
+        "baseline": "bottom",
+        "dx": -2,
+        "dy": -2,
+        "x": "width",
+        "text": "Average Across The Years"
+      }}]}]}

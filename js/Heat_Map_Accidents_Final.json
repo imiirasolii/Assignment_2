@@ -1,71 +1,71 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-      "width": 600,
-      "height": 800,
-      "params": [{
-    "name": "Year_selection",
-    "value": 2019,
-    "bind": {"input": "select", "options": [2013,2014,2015,2016,2017,2018,2019], "name": "Comparison Year"}
-  }],
-    "data": {"url": "https://raw.githubusercontent.com/imiirasolii/Assignment_2/main/data/dataset_for_heatmap.csv"},
-    "transform": [{"filter": "datum.Year==Year_selection"}],
-    "encoding": {
-      "y": {"field": "Hour", "type": "ordinal", 
-            "sort": [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23],
-            "axis": {
-            "title": "Hour of Day",
-            "titleColor":"grey",
-            "titleFontSize":18,
-            "labelFontSize": 14,
-            "labelFontWeight": "bold",
-            "labelColor": "grey"
-            }},
-      "x": {"field": "Day Week Description",
-            "type": "ordinal",
-            "sort": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-            "axis": {
-            "title": "Day Week",
-            "titleColor":"grey",
-            "titleFontSize":18,
-            "labelFontSize": 14,
-            "labelFontWeight": "bold",
-            "labelColor": "grey"
-            }}
-    },
-    "layer": [
-      {
-        "mark": "rect",
-        "encoding": {
-          "color": {
-          "field": "Difference",
-          "type": "quantitative",
-          "title": "Difference in Incidents",
-          "legend": {"direction": "horizontal", "gradientLength": 120},
-          "scale": {
-          "type": "threshold",
-          "domain": [-90,-60,-30],
-          "range": ["#08519c", "#3182bd", "#6baed6", "#bdd7e7","#eff3ff"]
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 1250,
+    "height": 530,
+    "params": [{
+  "name": "Year_selection",
+  "value": 2019,
+  "bind": {"input": "select", "options": [2013,2014,2015,2016,2017,2018,2019], "name": "Comparison Year "}
+}],
+  "data": {"url": "https://raw.githubusercontent.com/imiirasolii/Assignment_2/main/data/dataset_for_heatmap.csv"},
+  "transform": [{"filter": "datum.Year==Year_selection"}],
+  "encoding": {
+    "x": {"field": "Hour", "type": "ordinal", 
+          "sort": [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23],
+          "axis": {
+          "title": "Hour of Day",
+          "titleColor":"grey",
+          "titleFontSize":18,
+          "labelFontSize": 14,
+          "labelFontWeight": "bold",
+          "labelColor": "grey",
+          "labelAngle": 0
           }},
-    "tooltip": [
-    {"field": "Year", "type": "nominal", "title": "Year of Comparison to 2020"},
-    {"field": "Normal", "type": "quantitative",  "title": "Accidents in Selected Year"},
-    {"field": "Baseline", "type": "quantitative", "title": "2020 Accidents"}
-    ]
-          }
-        },
-      {
-        "mark": {"type": "text", "fontSize": 16,"fontWeight":500},
-        "encoding": {
-          "text": {"field": "Difference", "type": "quantitative"},
-          "color": {
-            "condition": {"test": "datum['Difference'] >= -30", "value": "black"},
-            "value": "white"
-          }
+    "y": {"field": "Day Week Description",
+          "type": "ordinal",
+          "sort": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+          "axis": {
+          "title": "Day of Week",
+          "titleColor":"grey",
+          "titleFontSize":18,
+          "labelFontSize": 14,
+          "labelFontWeight": "bold",
+          "labelColor": "grey"
+          }}
+  },
+  "layer": [
+    {
+      "mark": "rect",
+      "encoding": {
+        "color": {
+        "field": "Difference",
+        "type": "quantitative",
+        "title": "Difference in Incidents",
+        "legend": {"direction": "horizontal", "gradientLength": 120},
+        "scale": {
+        "type": "threshold",
+        "domain": [-90,-60,-30],
+        "range": ["#08519c", "#3182bd", "#6baed6", "#bdd7e7","#eff3ff"]
+        }},
+  "tooltip": [
+  {"field": "Year", "type": "nominal", "title": "Year of Comparison to 2020"},
+  {"field": "Normal", "type": "quantitative",  "title": "Accidents in Selected Year"},
+  {"field": "Baseline", "type": "quantitative", "title": "2020 Accidents"}
+  ]
+        }
+      },
+    {
+      "mark": {"type": "text", "fontSize": 16,"fontWeight":500},
+      "encoding": {
+        "text": {"field": "Difference", "type": "quantitative"},
+        "color": {
+          "condition": {"test": "datum['Difference'] >= -30", "value": "black"},
+          "value": "white"
         }
       }
-    ],
-    "config": {
-      "axis": {"grid": true, "tickBand": "extent"}
     }
+  ],
+  "config": {
+    "axis": {"grid": true, "tickBand": "extent"}
   }
-
+}
