@@ -32,7 +32,7 @@
           "tooltip": [
       {"field": "Year", "type": "nominal", "title": "Year"},
       {"field": "Regional or Metro", "type": "nominal", "title": "Section of Victoria"},
-      {"field": "Proportion", "type": "quantitative", "title": "Percentage of Accidents"}
+      {"field": "Proportion Formatted", "type": "nominal", "title": "Percentage of Accidents"}
       ]
   }
 }
